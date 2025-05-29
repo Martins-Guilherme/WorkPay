@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Calculadora de horas para o trabalho</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Calcular horas trabalhadas</h1>
+      <form id="formulario" class="form-container">
+        <div class="form-group">
+          <label for="horas">Horas trabalhadas</label>
+          <input required type="text" id="horas" name="horas" />
+        </div>
+        <div class="form-group">
+          <label for="minutos">Minutos trabalhadas</label>
+          <input required type="text" id="minutos" name="minutos" />
+        </div>
+        <div class="form-group">
+          <label for="valorHora">Valor pago/hora</label>
+          <input required type="text" id="valorHora" name="valorHora" />
+        </div>
+        <div class="form-group">
+          <button type="submit" id="calcularBtn" class="calcular">
+            🧮 Calcular
+          </button>
+          <button type="reset" id="limparBtn" class="limpar">
+            🔄 Limpar campos
+          </button>
+        </div>
+        <div class="resultado">
+          <p id="resultado" class="resultado"></p>
+          <p id="erro" class="erro"></p>
+        </div>
+      </form>
+    </main>
+    <script type="module" src="calculadora.js"></script>
+  </body>
+</html>
