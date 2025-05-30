@@ -1,3 +1,7 @@
+const limparInput = document.getElementById("limparBtn");
+limparInput.style.display = "none";
+const calcularInput = document.getElementById("calcularBtn");
+
 function horasTrabalhadas(horas, minutos, valorPagoHora) {
   horas = Number(horas);
   minutos = Number(minutos);
@@ -14,21 +18,31 @@ function horasTrabalhadas(horas, minutos, valorPagoHora) {
 }
 
 const frm = document.querySelector("form");
-const resp = document.querySelector("#resultado");
+const resp = document.querySelector(".resultado");
 
 frm.addEventListener("submit", (event) => {
   const horas = Number(frm.horas.value);
   const minutos = Number(frm.minutos.value);
   const valorHora = Number(frm.valorHora.value);
 
+  resp.style.display = "block";
+
   const valor = horasTrabalhadas(horas, minutos, valorHora);
   resp.innerHTML = `
-  Totalizando : ${valor.horas > 1 ? `${valor.horas} horas` : `${valor.horas} hora`} e ${valor.minutos > 1 ? `${valor.minutos} minutos` : `${valor.minutos} minuto`}<br>Valor pago por hora: R$ ${valor.valorPagoHora.toFixed(2)}<br>Valor total a ser pago: R$ ${valor.totalPagoHora}
-  `
-    
+  Totalizando : ${
+    valor.horas > 1 ? `${valor.horas} horas` : `${valor.horas} hora`
+  } e ${
+    valor.minutos > 1 ? `${valor.minutos} minutos` : `${valor.minutos} minuto`
+  }<br>Valor total a ser pago: R$ ${valor.totalPagoHora}
+  `;
+  limparInput.style.display = "block";
+  calcularInput.style.display = "none";
   event.preventDefault();
 });
 
-frm.addEventListener('reset', () => {
-  resp.innerHTML = '';
-})
+frm.addEventListener("reset", () => {
+  resp.innerHTML = "";
+  limparInput.style.display = "none";
+  calcularInput.style.display = "block";
+  resp.style.display = "none";
+});
